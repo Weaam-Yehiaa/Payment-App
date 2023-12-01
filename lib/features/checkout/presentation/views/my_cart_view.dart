@@ -14,7 +14,7 @@ class MyCartView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBarComponent(
-        'My Cart',
+        title: 'My Cart',
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -57,7 +57,7 @@ class MyCartView extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PaymentDetailsView()),
+                  MaterialPageRoute(builder: (context) =>  PaymentDetailsView()),
                 );
               },
             ),
