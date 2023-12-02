@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:payment_project/features/checkout/presentation/components/custom_button.dart';
-import 'package:payment_project/features/checkout/presentation/views/payment_details_view.dart';
 
 import '../components/app_bar_component.dart';
 import '../components/order_data_component.dart';
+import '../components/pament_method_bottom_sheet.dart';
 import '../components/total_component.dart';
 
 class MyCartView extends StatelessWidget {
@@ -54,11 +54,25 @@ class MyCartView extends StatelessWidget {
               height: 15,
             ),
             CustomButton(
+              title: 'Complete Payment',
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>  PaymentDetailsView()),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => const PaymentDetailsView()),
+                // );
+
+                showModalBottomSheet(
+                    context: context,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16)),
+                    builder: (context) {
+                      return   PaymentMethodsBottomSheet();
+                      //   BlocProvider(
+                      //   create: (context) => PaymentCubit(CheckoutRepoImpl()),
+                      //   child: const
+                      //   PaymentMethodsBottomSheet(),
+                      // );
+                    });
               },
             ),
             const SizedBox(
